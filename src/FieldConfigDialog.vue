@@ -20,14 +20,19 @@
 							<el-option label="字符串" value="string" />
 							<el-option label="数字" value="number" />
 							<el-option label="布尔" value="boolean" />
-							<el-option label="空值" value="null" />
 							<el-option label="对象" value="object" />
 							<el-option label="数组" value="array" />
 						</el-select>
 						<div class="form-hint">JSON 数据类型</div>
 					</el-form-item>
 					<el-form-item v-if="jsonTypeIsScalar" label="默认值">
-						<el-input v-model="form.defaultValue" placeholder="留空则无默认值" clearable />
+						<template v-if="form.jsonType === 'boolean'">
+							<el-select v-model="form.defaultValue" placeholder="选择默认值" clearable>
+								<el-option label="true" value="true" />
+								<el-option label="false" value="false" />
+							</el-select>
+						</template>
+						<el-input v-else v-model="form.defaultValue" placeholder="留空则无默认值" clearable />
 					</el-form-item>
 					<template v-if="jsonTypeIsScalar">
 						<el-divider content-position="left">表单属性</el-divider>
@@ -35,7 +40,6 @@
 							<el-switch v-model="form.isForm" />
 							<span class="form-hint">{{ form.isForm ? '在表单中展示' : '隐藏字段' }}</span>
 						</el-form-item>
-						<template v-if="form.isForm">
 							<el-form-item label="表单控件">
 								<el-select v-model="form.fieldType" @change="onTypeChange">
 									<el-option v-for="opt in fieldTypeOptions" :key="opt.value" :label="opt.label" :value="opt.value" />
@@ -45,7 +49,6 @@
 							<el-form-item label="必填项">
 								<el-switch v-model="form.required" />
 							</el-form-item>
-						</template>
 						<el-divider content-position="left">约束规则</el-divider>
 						<el-form-item v-if="form.fieldType === 'select'" label="选项列表">
 							<div class="options-editor">
@@ -117,14 +120,19 @@
 						<el-option label="字符串" value="string" />
 						<el-option label="数字" value="number" />
 						<el-option label="布尔" value="boolean" />
-						<el-option label="空值" value="null" />
 						<el-option label="对象" value="object" />
 						<el-option label="数组" value="array" />
 					</el-select>
 					<div class="form-hint">JSON 数据类型</div>
 				</el-form-item>
 				<el-form-item v-if="jsonTypeIsScalar" label="默认值">
-					<el-input v-model="form.defaultValue" placeholder="留空则无默认值" clearable />
+						<template v-if="form.jsonType === 'boolean'">
+							<el-select v-model="form.defaultValue" placeholder="选择默认值" clearable>
+								<el-option label="true" value="true" />
+								<el-option label="false" value="false" />
+							</el-select>
+						</template>
+						<el-input v-else v-model="form.defaultValue" placeholder="留空则无默认值" clearable />
 				</el-form-item>
 				<template v-if="jsonTypeIsScalar">
 					<el-divider content-position="left">表单属性</el-divider>
@@ -132,7 +140,6 @@
 						<el-switch v-model="form.isForm" />
 						<span class="form-hint">{{ form.isForm ? '在表单中展示' : '隐藏字段' }}</span>
 					</el-form-item>
-					<template v-if="form.isForm">
 						<el-form-item label="表单控件">
 							<el-select v-model="form.fieldType" @change="onTypeChange">
 								<el-option v-for="opt in fieldTypeOptions" :key="opt.value" :label="opt.label" :value="opt.value" />
@@ -142,7 +149,6 @@
 						<el-form-item label="必填项">
 							<el-switch v-model="form.required" />
 						</el-form-item>
-					</template>
 					<el-divider content-position="left">约束规则</el-divider>
 					<el-form-item v-if="form.fieldType === 'select'" label="选项列表">
 						<div class="options-editor">
