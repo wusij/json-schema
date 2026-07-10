@@ -5,10 +5,12 @@
   "type": "module",
   "main": "./dist/json-schema-editor.umd.js",
   "module": "./dist/json-schema-editor.es.js",
+  "types": "./dist/json-schema-editor.d.ts",
   "exports": {
     ".": {
       "import": "./dist/json-schema-editor.es.js",
-      "require": "./dist/json-schema-editor.umd.js"
+      "require": "./dist/json-schema-editor.umd.js",
+      "types": "./dist/json-schema-editor.d.ts"
     },
     "./dist/style.css": "./dist/style.css"
   },
