@@ -1,0 +1,58 @@
+{
+  "name": "json-schema-editor",
+  "version": "1.0.0",
+  "description": "Visual JSON tree editor with field configuration — edit JSON structure and attach form metadata (labels, validation, upload rules, etc.) in one UI. Built for Vue 3 + Element Plus.",
+  "type": "module",
+  "main": "./dist/json-schema-editor.umd.cjs",
+  "module": "./dist/json-schema-editor.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/json-schema-editor.js",
+      "require": "./dist/json-schema-editor.umd.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0",
+    "element-plus": "^2.5.0",
+    "@element-plus/icons-vue": "^2.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "sass-embedded": "^1.83.0",
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0",
+    "vue-tsc": "^2.0.0"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "json",
+    "json-editor",
+    "schema",
+    "schema-editor",
+    "form-builder",
+    "element-plus",
+    "visual-editor",
+    "json-tree"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2910410219/json-schema-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/2910410219/json-schema-editor/issues"
+  },
+  "homepage": "https://github.com/2910410219/json-schema-editor#readme"
+}
