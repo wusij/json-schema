@@ -3,15 +3,14 @@
   "version": "1.0.0",
   "description": "Visual JSON tree editor with field configuration — edit JSON structure and attach form metadata (labels, validation, upload rules, etc.) in one UI. Built for Vue 3 + Element Plus.",
   "type": "module",
-  "main": "./dist/json-schema-editor.umd.cjs",
-  "module": "./dist/json-schema-editor.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/json-schema-editor.umd.js",
+  "module": "./dist/json-schema-editor.es.js",
   "exports": {
     ".": {
-      "import": "./dist/json-schema-editor.js",
-      "require": "./dist/json-schema-editor.umd.cjs",
-      "types": "./dist/index.d.ts"
-    }
+      "import": "./dist/json-schema-editor.es.js",
+      "require": "./dist/json-schema-editor.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "dist"

@@ -142,9 +142,9 @@ function valueToNode(value: any, key: string, keyEditable: boolean): JsonNodeDat
 			const dataKey = (jtype === 'object' || jtype === 'array') ? 'attrs' : 'value';
 			if (dataKey in value) {
 				const rawVal = value[dataKey];
-				const cfg = {};
+				const cfg: Record<string, any> = {};
 				for (const k of Object.keys(value)) {
-					if (k !== 'type' && k !== dataKey) cfg[k] = value[k];
+					if (k !== 'type' && k !== dataKey) cfg[k] = (value as Record<string, any>)[k];
 				}
 				const hasCfg = Object.keys(cfg).length > 0;
 				if (jtype === 'object') {
